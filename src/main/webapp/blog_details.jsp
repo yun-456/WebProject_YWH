@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -44,7 +45,7 @@
                <!-- Logo -->
                <div class="col-xl-2 col-lg-2">
                   <div class="logo">
-                     <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                     <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
                   </div>
                </div>
                <div class="col-xl-10 col-lg-10">
@@ -53,20 +54,20 @@
                      <div class="main-menu d-none d-lg-block">
                         <nav>
                            <ul id="navigation">                                                                                          
-                              <li class="active" ><a href="index.html">Home</a></li>
-                              <li><a href="courses.html">Courses</a></li>
-                              <li><a href="about.html">About</a></li>
+                              <li class="active" ><a href="index.jsp">Home</a></li>
+                              <li><a href="courses.jsp">Courses</a></li>
+                              <li><a href="about.jsp">About</a></li>
                               <li><a href="#">Blog</a>
                                  <ul class="submenu">
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog_details.html">Blog Details</a></li>
-                                    <li><a href="elements.html">Element</a></li>
+                                    <li><a href="blog.jsp">Blog</a></li>
+                                    <li><a href="blog_details.jsp">Blog Details</a></li>
+                                    <li><a href="elements.jsp">Element</a></li>
                                  </ul>
                               </li>
-                              <li><a href="contact.html">Contact</a></li>
+                              <li><a href="contact.jsp">Contact</a></li>
                               <!-- Button -->
                               <li class="button-header margin-left "><a href="#" class="btn">Join</a></li>
-                              <li class="button-header"><a href="login.html" class="btn btn3">Log in</a></li>
+                              <li class="button-header"><a href="login.jsp" class="btn btn3">Log in</a></li>
                            </ul>
                         </nav>
                      </div>
@@ -96,7 +97,7 @@
                  <!-- breadcrumb Start-->
                  <nav aria-label="breadcrumb">
                    <ol class="breadcrumb">
-                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                     <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
                      <li class="breadcrumb-item"><a href="#">Blog</a></li> 
                   </ol>
                </nav>
@@ -402,7 +403,7 @@
             <div class="media post_item">
                <img src="assets/img/post/post_1.png" alt="post">
                <div class="media-body">
-                  <a href="blog_details.html">
+                  <a href="blog_details.jsp">
                      <h3 style="color: #2d2d2d;">From life was you fish...</h3>
                   </a>
                   <p>January 12, 2019</p>
@@ -411,7 +412,7 @@
             <div class="media post_item">
                <img src="assets/img/post/post_2.png" alt="post">
                <div class="media-body">
-                  <a href="blog_details.html">
+                  <a href="blog_details.jsp">
                      <h3 style="color: #2d2d2d;">The Amazing Hubble</h3>
                   </a>
                   <p>02 Hours ago</p>
@@ -420,7 +421,7 @@
             <div class="media post_item">
                <img src="assets/img/post/post_3.png" alt="post">
                <div class="media-body">
-                  <a href="blog_details.html">
+                  <a href="blog_details.jsp">
                      <h3 style="color: #2d2d2d;">Astronomy Or Astrology</h3>
                   </a>
                   <p>03 Hours ago</p>
@@ -429,7 +430,7 @@
             <div class="media post_item">
                <img src="assets/img/post/post_4.png" alt="post">
                <div class="media-body">
-                  <a href="blog_details.html">
+                  <a href="blog_details.jsp">
                      <h3 style="color: #2d2d2d;">Asteroids telescope</h3>
                   </a>
                   <p>01 Hours ago</p>
@@ -528,7 +529,7 @@
               <div class="single-footer-caption mb-30">
                 <!-- logo -->
                 <div class="footer-logo mb-25">
-                  <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                  <a href="index.jsp"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                </div>
                <div class="footer-tittle">
                   <div class="footer-pera">
