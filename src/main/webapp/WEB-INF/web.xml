@@ -1,84 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="https://jakarta.ee/xml/ns/jakartaee"
-    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
-    id="WebApp_ID" version="5.0">
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+	id="WebApp_ID" version="5.0">
 
-    <display-name>WebProject_YWH</display-name>
+	<display-name>WebProject_YWH</display-name>
 
-    <!-- 기본 진입 페이지 설정 -->
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+	<!-- 기본 진입 페이지 설정 -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 
-    <!-- Oracle 데이터베이스 연결 설정 -->
-    <context-param>
-        <param-name>OracleDriver</param-name>
-        <param-value>oracle.jdbc.OracleDriver</param-value>
-    </context-param>
-    <context-param>
-        <param-name>OracleURL</param-name>
-        <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
-    </context-param>
-    <context-param>
-        <param-name>OracleId</param-name>
-        <param-value>webproject_db</param-value>
-    </context-param>
-    <context-param>
-        <param-name>OraclePwd</param-name>
-        <param-value>1234</param-value>
-    </context-param>
+	<!-- Oracle 데이터베이스 연결 설정 -->
+	<context-param>
+		<param-name>OracleDriver</param-name>
+		<param-value>oracle.jdbc.OracleDriver</param-value>
+	</context-param>
+	<context-param>
+		<param-name>OracleURL</param-name>
+		<param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+	</context-param>
+	<context-param>
+		<param-name>OracleId</param-name>
+		<param-value>webproject_db</param-value>
+	</context-param>
+	<context-param>
+		<param-name>OraclePwd</param-name>
+		<param-value>1234</param-value>
+	</context-param>
 
-    <!-- 회원가입 처리 -->
-    <servlet>
-        <servlet-name>SignProcess</servlet-name>
-        <jsp-file>/login_info/signProcess.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>SignProcess</servlet-name>
-        <url-pattern>/signup</url-pattern>
-    </servlet-mapping>
+	<!-- 회원가입 처리 -->
+	<servlet>
+		<servlet-name>SignProcess</servlet-name>
+		<jsp-file>/login_info/signProcess.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SignProcess</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
 
-    <!-- 로그인 폼 매핑 -->
-    <servlet>
-        <servlet-name>LoginForm</servlet-name>
-        <jsp-file>/login_info/LoginForm.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginForm</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-    
-    <session-config>
-        <session-timeout>30</session-timeout> <!-- 단위: 분 -->
-    </session-config>
-    
-    <!-- 요청명에 대한 매핑을 설정 -->
-    <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>servlet.HelloServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/12Servlet/HelloServlet.do</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>DirectServletPrint</servlet-name>
-        <servlet-class>servlet.DirectServletPrint</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DirectServletPrint</servlet-name>
-        <url-pattern>/12Servlet/DirectServletPrint.do</url-pattern>
-    </servlet-mapping>
-    
-  <servlet>
-    <servlet-name>MVCBoardList</servlet-name>
-    <servlet-class>model.mvcboard1.ListController</servlet-class>
-</servlet>
+	<!-- 로그인 폼 매핑 -->
+	<servlet>
+		<servlet-name>LoginForm</servlet-name>
+		<jsp-file>/login_info/LoginForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginForm</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>MVCBoardList</servlet-name>
-        <url-pattern>/mvcboard1/list.do</url-pattern>
-    </servlet-mapping>
+	<session-config>
+		<session-timeout>30</session-timeout> <!-- 단위: 분 -->
+	</session-config>
+
+	<!-- 요청명에 대한 매핑을 설정 -->
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>servlet.HelloServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/Servlet/HelloServlet.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DirectServletPrint</servlet-name>
+		<servlet-class>servlet.DirectServletPrint</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DirectServletPrint</servlet-name>
+		<url-pattern>/Servlet/DirectServletPrint.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>MVCBoardList</servlet-name>
+		<servlet-class>model.mvcboard1.ListController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MVCBoardList</servlet-name>
+		<url-pattern>/mvcboard1/list.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>MVCBoardWrite</servlet-name>
+		<servlet-class>model.mvcboard1.WriteController</servlet-class>
+		<!-- 첨부파일 관련 설정 추가 -->
+		<multipart-config>
+			<max-file-size>10485760</max-file-size> <!-- 10MB -->
+			<max-request-size>10485760</max-request-size> <!-- 10MB -->
+		</multipart-config>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MVCBoardWrite</servlet-name>
+		<url-pattern>/mvcboard1/write.do</url-pattern>
+	</servlet-mapping>
+	
+
 </web-app>
