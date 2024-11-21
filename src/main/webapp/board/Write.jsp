@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>파일 첨부형 게시판</title>
+<title>자유게시판</title>
 <script type="text/javascript">
     function validateForm(form) {  // 필수 항목 입력 확인
         if (form.title.value == "") {
@@ -21,7 +21,7 @@
     }
 </script>
 </head>
-<h2>파일 첨부형 게시판 - 글쓰기(Write)</h2>
+<h2>자유게시판 - 글쓰기(Write)</h2>
 <form name="writeFrm" method="post" enctype="multipart/form-data"
       action="../board/write.do" onsubmit="return validateForm(this);">
 <table border="1" width="90%">
@@ -56,4 +56,3 @@
 </form>
 </body>
 </html>
-

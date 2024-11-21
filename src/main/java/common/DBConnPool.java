@@ -42,7 +42,7 @@ public class DBConnPool {
           3. server.xml에 등록한 네이밍을 Lookup 하여 DataSource를 얻어온다.
           즉 DB연결을 위한 정보를 가지고 있다. 
           */
-         DataSource source = (DataSource)ctx.lookup("dbcp_myoracle");
+         DataSource source = (DataSource)ctx.lookup("dbcp_webproject");
          //4. 커넥션풀에 생성해 둔 객체를 가져다가 사용한다.
          con = source.getConnection();
          

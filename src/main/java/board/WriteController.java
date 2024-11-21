@@ -89,7 +89,8 @@ public class WriteController extends HttpServlet{
       //입력에 성공하면 1, 실패하면 0을 반환한다.
       int result = dao.insertWrite(dto);
       
-         dao.insertWrite(dto);
+      //중복 입력 방지: 잘못된 코드로 인해 두 번 호출되고 있는 insertWrite 제거
+      //dao.insertWrite(dto);
       
       dao.close();
       
@@ -104,40 +105,3 @@ public class WriteController extends HttpServlet{
       }
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

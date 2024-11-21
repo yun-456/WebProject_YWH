@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>파일 찾받형 게시번</title>
+<title>자유게시판</title>
 <style>
 a {
    text-decoration: none;
@@ -14,7 +14,7 @@ a {
 </head>
 <body>
 
-   <h2>파일 찾받형 게시번 - 목록보기(List)</h2>
+   <h2>자유게시판 - 목록보기(List)</h2>
    <!-- 검색 폴맵 -->
    <!-- 검색어를 입력 후 '검색' 버튼을 눌으면 현재 페이지로 입력한 폴값이 전송된다. action속성을 별도로 추가하지 않으면 현재페이지가 된다. -->
    <form method="get">
