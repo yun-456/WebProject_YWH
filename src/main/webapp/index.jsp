@@ -72,7 +72,7 @@
 								<div class="hero__caption">
 									<h1>Welcome to WebProject_YWH</h1>
 									<p>Your platform for online learning and personal growth.</p>
-									<a href="<%= (session.getAttribute("UserId") != null) ? request.getContextPath() + "/mvcboard1/list.do" : request.getContextPath() + "/login_info/LoginForm.jsp" %>"
+									<a href="<%= (session.getAttribute("UserId") != null) ? request.getContextPath() + "/board/list.do" : request.getContextPath() + "/login_info/LoginForm.jsp" %>"
 										class="btn hero-btn">자유게시판</a>
 								</div>
 							</div>

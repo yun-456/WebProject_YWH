@@ -60,7 +60,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>HelloServlet</servlet-name>
-		<url-pattern>/Servlet/HelloServlet.do</url-pattern>
+		<url-pattern>/servlet/HelloServlet.do</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -69,20 +69,20 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DirectServletPrint</servlet-name>
-		<url-pattern>/Servlet/DirectServletPrint.do</url-pattern>
+		<url-pattern>/servlet/DirectServletPrint.do</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>MVCBoardList</servlet-name>
-		<servlet-class>model.mvcboard1.ListController</servlet-class>
+		<servlet-name>boardList</servlet-name>
+		<servlet-class>board.ListController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>MVCBoardList</servlet-name>
-		<url-pattern>/mvcboard1/list.do</url-pattern>
+		<servlet-name>boardList</servlet-name>
+		<url-pattern>/board/list.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>MVCBoardWrite</servlet-name>
-		<servlet-class>model.mvcboard1.WriteController</servlet-class>
+		<servlet-name>boardWrite</servlet-name>
+		<servlet-class>board.WriteController</servlet-class>
 		<!-- 첨부파일 관련 설정 추가 -->
 		<multipart-config>
 			<max-file-size>10485760</max-file-size> <!-- 10MB -->
@@ -90,8 +90,8 @@
 		</multipart-config>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>MVCBoardWrite</servlet-name>
-		<url-pattern>/mvcboard1/write.do</url-pattern>
+		<servlet-name>boardWrite</servlet-name>
+		<url-pattern>/board/write.do</url-pattern>
 	</servlet-mapping>
 	
 

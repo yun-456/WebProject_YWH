@@ -71,7 +71,7 @@ public class MemberAuth extends HttpServlet {
 		앞에서 판단한 인증정보는 request영역에 저장한 후 JSP로
 		포워드한다.
 		*/
-		req.getRequestDispatcher("/Servlet/MemberAuth.jsp").forward(req, resp);
+		req.getRequestDispatcher("/servlet/MemberAuth.jsp").forward(req, resp);
 	}
 	//서블릿 종료시 DAO도 같이 자원해제한다.
 	@Override

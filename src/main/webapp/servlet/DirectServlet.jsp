@@ -11,7 +11,7 @@
 	<!-- 
 	컨텍스트루트 경로를 제외한 상대경로로 링크를 생성한다.
 	전송방식은 post로 지정한다. -->
-	<form method="post" action="../12Servlet/DirectServletPrint.do">
+	<form method="post" action="../servlet/DirectServletPrint.do">
 		<input type="submit" value="바로가기"/> 
 	</form>
 </body>

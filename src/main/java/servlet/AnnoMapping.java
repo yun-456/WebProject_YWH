@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /*
  web.xml에서 매핑을 하는 대신 @WebServlet 어노테이션을 사용하여 요청명에 대한 매핑을 한다. 
  */
-@WebServlet("/Servlet/AnnoMapping.do")
+@WebServlet("/servlet/AnnoMapping.do")
 public class AnnoMapping extends HttpServlet {
    
    @Override
@@ -19,7 +19,7 @@ public class AnnoMapping extends HttpServlet {
          throws ServletException, IOException {
       //request 영역에 속성을 저장한 후 JSP로 포워드한다.
       req.setAttribute("message", "@WebServlet으로 매핑");
-      req.getRequestDispatcher("/Servlet/AnnoMapping.jsp")
+      req.getRequestDispatcher("/servlet/AnnoMapping.jsp")
          .forward(req, resp);
    }
 }

@@ -17,7 +17,7 @@
 	요청명은 일괄적으로 .one으로 끝나는 형태로 생성한 후 링크를 걸어준다
 	이처럼 요청명(url- pattern)은 우리 마음데로 네이밍 할 수 있다. -->
 	<ul>
-		<li><a href="../12Servlet/freeboard.one">자유게시판</a></li>
+		<li><a href="../servlet/freeboard.one">자유게시판</a></li>
 	 </ul>
 </body>
 </html>
