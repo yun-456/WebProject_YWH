@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>자유게시판</title>
+<title>자료형게시판</title>
 <style>
     body {
         background-color: #f0f8ff;
@@ -70,9 +70,9 @@
     }
 </script>
 </head>
-<h2>자유게시판 - 글쓰기(Write)</h2>
+<h2>자료형게시판 - 글쓰기(Write)</h2>
 <form name="writeFrm" method="post" enctype="multipart/form-data"
-      action="../board/write.do" onsubmit="return validateForm(this);">
+      action="../fileboard/filewrite.do" onsubmit="return validateForm(this);">
 <table border="1" width="90%">
     <tr>
         <td>제목</td>
@@ -96,7 +96,7 @@
         <td colspan="2" align="center">
             <button type="submit">작성 완료</button>
             <button type="reset">RESET</button>
-            <button type="button" onclick="location.href='../board/list.do';">
+            <button type="button" onclick="location.href='../fileboard/filelist.do';">
                 목록 바로가기
             </button>
         </td>

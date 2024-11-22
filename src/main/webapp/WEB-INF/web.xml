@@ -93,6 +93,58 @@
 		<servlet-name>boardWrite</servlet-name>
 		<url-pattern>/board/write.do</url-pattern>
 	</servlet-mapping>
-	
+	<context-param>
+		<param-name>POSTS_PER_PAGE</param-name>
+		<param-value>5</param-value>
+	</context-param>
+	<context-param>
+		<param-name>PAGES_PER_BLOCK</param-name>
+		<param-value>5</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>boardListPage</servlet-name>
+		<servlet-class>board.ListPageController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>boardListPage</servlet-name>
+		<url-pattern>/board/listPage.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>fileboardListPage</servlet-name>
+		<servlet-class>fileboard.fileListPageController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fileboardListPage</servlet-name>
+		<url-pattern>/fileboard/filelistPage.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>fileboardWrite</servlet-name>
+		<servlet-class>fileboard.fileWriteController</servlet-class>
+		<!-- 첨부파일 관련 설정 추가 -->
+		<multipart-config>
+			<max-file-size>10485760</max-file-size> <!-- 10MB -->
+			<max-request-size>10485760</max-request-size> <!-- 10MB -->
+		</multipart-config>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fileboardWrite</servlet-name>
+		<url-pattern>/fileboard/filewrite.do</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>qaboardListPage</servlet-name>
+		<servlet-class>qaboard.qaListPageController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>qaboardListPage</servlet-name>
+		<url-pattern>/qaboard/qalistPage.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>qaboardWrite</servlet-name>
+		<servlet-class>qaboard.qaWriteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>qaboardWrite</servlet-name>
+		<url-pattern>/qaboard/qawrite.do</url-pattern>
+	</servlet-mapping>
 </web-app>

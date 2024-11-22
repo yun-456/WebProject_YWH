@@ -56,7 +56,7 @@
     }
 </style>
 <script type="text/javascript">
-    function validateForm(form) {  // 필수 항목 입력 확인
+    function validateForm(form) {
         if (form.title.value == "") {
             alert("제목을 입력하세요.");
             form.title.focus();
@@ -70,20 +70,28 @@
     }
 </script>
 </head>
-<h2>자유게시판 - 글쓰기(Write)</h2>
-<form name="writeFrm" method="post" enctype="multipart/form-data"
-      action="../board/write.do" onsubmit="return validateForm(this);">
+<h2>자료형게시판 - 수정하기(Edit)</h2>
+<form name="writeFrm" method="post" enctype="multipart/form-data" action="../fileboard/fileedit.do" onsubmit="return validateForm(this);">
+
+<!-- 수정할 게시물의 일련번호 -->
+<input type="hid den" name="idx" value="${ dto.idx }"/>
+<!-- 게시물의 작성자 아이디 -->
+<input type="hid den" name="id" value="${ dto.id }"/>
+<!-- 기존 게시물의 파일명 -->
+<input type="hid den" name="prevOfile" value="${ dto.ofile }" />
+<input type="hid den" name="prevSfile" value="${ dto.sfile }" />
+    
 <table border="1" width="90%">
     <tr>
         <td>제목</td>
         <td>
-            <input type="text" name="title" style="width:90%;" />
+            <input type="text" name="title" style="width:90%;" value="${ dto.title }" />
         </td>
     </tr>
     <tr>
         <td>내용</td>
         <td>
-            <textarea name="content" style="width:90%;height:100px;"></textarea>
+            <textarea name="content" style="width:90%;height:100px;">${ dto.content }</textarea>
         </td>
     </tr>
     <tr>
@@ -96,7 +104,7 @@
         <td colspan="2" align="center">
             <button type="submit">작성 완료</button>
             <button type="reset">RESET</button>
-            <button type="button" onclick="location.href='../board/list.do';">
+            <button type="button" onclick="location.href='../fileboard/filelist.do';">
                 목록 바로가기
             </button>
         </td>

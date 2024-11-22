@@ -1,4 +1,4 @@
-package board;
+package fileboard;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import utils.JSFunction;
 /*
  * 글쓰기를 위한 컨트롤러는 페이지로 진입하기 위한 doGet()과 쓰기처리를 위한 doPost()를
  * 한꺼번에 정의한다. */
-public class WriteController extends HttpServlet{
+public class fileWriteController extends HttpServlet{
    private static final long serialVersionUID =1L;
    
    //글쓰기 페이지에 진입하는것은 버튼을 클릭하여 이동하게 되므로 get방식의 요청이다.
@@ -32,7 +32,7 @@ public class WriteController extends HttpServlet{
       }
       
       //로그인이 완료된 상태라면 쓰기페이지를 포워드한다.
-      req.getRequestDispatcher("/board/Write.jsp").forward(req, resp);
+      req.getRequestDispatcher("/fileboard/fileWrite.jsp").forward(req, resp);
    }
    
    //글쓰기 처리
@@ -61,13 +61,13 @@ public class WriteController extends HttpServlet{
       catch (Exception e) {
          //문제가 있는 경우 예외처리
          JSFunction.alertLocation(resp, "파일 업로드 오류입니다.",
-               "../board/write.do");
+               "../fileboard/filewrite.do");
          return;
       }
       
       //2. 파일 업로드 외 처리 ==========================================
       // 폼값을 DTO에 저장
-      boardDTO dto = new boardDTO();
+      fileboardDTO dto = new fileboardDTO();
       //작성자 아이디는 session 영역에 저장된 데이터를 이용한다.
       dto.setId(session.getAttribute("UserId").toString());
       //제목과 내용등은 사용자가 전송한 폼값을 받은 후 저장한다.
@@ -85,7 +85,7 @@ public class WriteController extends HttpServlet{
       }
       
       //DAO를 통해 DB에 게시 내용 저장(insert 쿼리문 실행)
-      boardDAO dao = new boardDAO();
+      fileboardDAO dao = new fileboardDAO();
       //입력에 성공하면 1, 실패하면 0을 반환한다.
       int result = dao.insertWrite(dto);
       
@@ -97,11 +97,11 @@ public class WriteController extends HttpServlet{
       //성공 or 실패?
       if (result == 1) { //글쓰기 성공
          //게시판 목록으로 이동
-         resp.sendRedirect("../board/listPage.do");
+         resp.sendRedirect("../fileboard/filelistPage.do");
       }
       else { // 글쓰기 실패
          //글쓰기 페이지로 다시 돌아간다.
-         JSFunction.alertLocation(resp, "글쓰기에 실패했습니다.", "../board/write.do");
+         JSFunction.alertLocation(resp, "글쓰기에 실패했습니다.", "../fileboard/filewrite.do");
       }
    }
 }

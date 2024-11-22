@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="utils.CookieManage" %>
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -10,6 +11,21 @@
     <!-- CSS here -->
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/style.css">
+    <style>
+        label {
+            color: white;
+        }
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .custom-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            transform: scale(1.5); /* 체크박스 크기 조정 */
+        }
+    </style>
 </head>
 <body>
     <!-- Preloader Start -->
@@ -39,11 +55,15 @@
                 <h2>Login Here</h2>
                 <div class="form-input">
                     <label for="user_id">아이디</label>
-                    <input type="text" id="user_id" name="user_id" placeholder="아이디" required>
+                    <input type="text" id="user_id" name="user_id" placeholder="아이디" value="<%= CookieManage.readCookie(request, "loginId") %>" required>
                 </div>
                 <div class="form-input">
                     <label for="user_pw">패스워드</label>
                     <input type="password" id="user_pw" name="password" placeholder="패스워드" required>
+                </div>
+                <div class="custom-checkbox">
+                    <input type="checkbox" id="save_check" name="save_check" value="Y" <%= CookieManage.readCookie(request, "loginId").isEmpty() ? "" : "checked" %>>
+                    <label for="save_check">아이디 저장하기</label>
                 </div>
                 <div class="form-input pt-30">
                     <input type="submit" value="로그인하기" class="btn btn-primary">

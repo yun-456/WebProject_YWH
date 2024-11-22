@@ -62,7 +62,7 @@
 </style>
 </head>
 <body>
-<h2>자유게시판 - 상세 보기</h2>
+<h2>자료형게시판 - 상세 보기</h2>
 
 <table border="1" width="90%">
     <colgroup>
@@ -121,11 +121,11 @@
     <tr>
         <td colspan="4" align="center">
             <button type="button" 
-            onclick="location.href='../board/edit.do?idx=${ param.idx }';">수정하기</button>
+            onclick="location.href='../fileboard/fileedit.do?idx=${ param.idx }';">수정하기</button>
             <button type="button" 
-            onclick="location.href='../board/delete.do?idx=${ param.idx }';">삭제하기</button>
+            onclick="location.href='../fileboard/filedelete.do?idx=${ param.idx }';">삭제하기</button>
             <button type="button" 
-            onclick="location.href='../board/listPage.do';">
+            onclick="location.href='../fileboard/filelistPage.do';">
                 목록 바로가기
             </button>
         </td>
@@ -139,7 +139,7 @@
 function deleteConfirm(idx){
    let c = confirm("게시물을 삭제하시겠습니까?");
    if(c==true){
-      location.href="../board/delete.do?idx="+ idx;
+      location.href="../fileboard/filedelete.do?idx="+ idx;
    }
 }
 </script>

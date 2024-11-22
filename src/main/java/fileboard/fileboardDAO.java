@@ -1,4 +1,4 @@
-package board;
+package fileboard;
 
 import java.util.List;
 import java.util.Map;
@@ -7,10 +7,10 @@ import java.util.Vector;
 import common.DBConnPool;
 
 //DBCP(커넥션풀)을 통해 Oracle에 연결하기 위해 상속을 받아 정의
-public class boardDAO extends DBConnPool {
+public class fileboardDAO extends DBConnPool {
 
 	// 기본생성자를 통해 부모클래스의 기본생성자 호출(생략가능)
-	public boardDAO() {
+	public fileboardDAO() {
 		super();
 	}
 
@@ -18,10 +18,10 @@ public class boardDAO extends DBConnPool {
 	public int selectCount(Map<String, Object> map) {
 		int totalCount = 0;
 		// 오라클의 그룹함수는 count()를 사용해서 쿼리문 작성
-		String query = "SELECT COUNT(*) FROM board";
+		String query = "SELECT COUNT(*) FROM fileboard";
 		// 매개변수로 전달된 검색어가 있는 경우에만 where절을 동적으로 추가
 		if (map.get("searchWord") != null) {
-			query += " WHERE " + map.get("searchField") + " " + " LIKE '%" + map.get("searchWord") + "%'";
+			query += " WHERE " + map.get("searchField") + " LIKE '%" + map.get("searchWord") + "%'";
 		}
 		try {
 			// Statement 인스턴스 생성(정적쿼리문 실행)
@@ -41,12 +41,12 @@ public class boardDAO extends DBConnPool {
 	}
 
 	// 게시판 목록에 출력할 레코드를 인출하기 위한 메서드 정의
-	public List<boardDTO> selectList(Map<String, Object> map) {
+	public List<fileboardDTO> selectList(Map<String, Object> map) {
 		// 오라클에서 인출한 레코드를 저장하기 위한 List 생성
-		List<boardDTO> board = new Vector<boardDTO>();
+		List<fileboardDTO> board = new Vector<fileboardDTO>();
 
 		// 레코드 인출을 위한 쿼리문 작성
-		String query = "SELECT * FROM board";
+		String query = "SELECT * FROM fileboard";
 		// 검색어 입력 여부에 따라서 where절은 조건부로 추가됨.
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField") + " LIKE '%" + map.get("searchWord") + "%' ";
@@ -64,7 +64,7 @@ public class boardDAO extends DBConnPool {
 
 			while (rs.next()) {
 				// 하나의 레코드를 저장하기 위해 DTO인스턴스 생성
-				boardDTO dto = new boardDTO();
+				fileboardDTO dto = new fileboardDTO();
 
 				/*
 				 * ResultSet 인스턴스에서 데이터를 추출할때 멤버변수의 타입에따라 getString(), getInt(), getDate()로 구분하여
@@ -92,14 +92,14 @@ public class boardDAO extends DBConnPool {
 	}
 
 	// 글쓰기 처리를 위한 쿼리문 실행
-	public int insertWrite(boardDTO dto) {
+	public int insertWrite(fileboardDTO dto) {
 		int result = 0;
 		try {
 			/*
 			 * default값이 있는 3개의 컬럼을 제외한 나머지 컬럼에 대해서만 insert쿼리문을 작성. 일련번호 idx의 경우에는 시퀀스를 사용
 			 */
-			String query = "INSERT INTO board ( " + " idx, id, title, content, ofile, sfile)" + " VALUES ( "
-					+ " seq_board_num.NEXTVAL,?,?,?,?,?)";
+			String query = "INSERT INTO fileboard ( " + " idx, id, title, content, ofile, sfile)" + " VALUES ( "
+					+ " seq_fileboard_num.NEXTVAL,?,?,?,?,?)";
 			// 쿼리문을 인수로 preparedStatement 인스턴스 생성
 			psmt = con.prepareStatement(query);
 			// 인스턴스를 통해 인파라미터 설정
@@ -118,11 +118,11 @@ public class boardDAO extends DBConnPool {
 	}
 
 	// 게시물 열람
-	public boardDTO selectView(String idx) {
+	public fileboardDTO selectView(String idx) {
 		// 인출한 레코드를 저장하기 위해 DTO 생성
-		boardDTO dto = new boardDTO();
+		fileboardDTO dto = new fileboardDTO();
 		// 내부조인(Inner join)을 이용해서 쿼리문 작성. member테이블의 name컬럼까지 포함.
-		String query = "SELECT Bo.*, Ui.name FROM board Bo " + "INNER JOIN user_info Ui ON Bo.id = Ui.user_id "
+		String query = "SELECT Bo.*, Ui.name FROM fileboard Bo " + "INNER JOIN user_info Ui ON Bo.id = Ui.user_id "
 				+ "WHERE idx = ?"; // 쿼리문 템플릿 준비
 
 		try {
@@ -155,7 +155,7 @@ public class boardDAO extends DBConnPool {
 	public void updateVisitCount(String idx) {
 		// visitcount 컬럼은 number타입이므로 산술연산이 가능함.
 		// 1을 더한 결과를 컬럼에 재반영하는 형식으로 update 쿼리문 작성.
-		String query = "UPDATE board SET " + " visitcount=visitcount+1" + " WHERE idx=?";
+		String query = "UPDATE fileboard SET " + " visitcount=visitcount+1" + " WHERE idx=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, idx);
@@ -168,7 +168,7 @@ public class boardDAO extends DBConnPool {
 	}
 
 	public void downCountPlus(String idx) {
-		String sql = "UPDATE board SET " + " downcount=downcount+1 " + " WHERE idx=? ";
+		String sql = "UPDATE fileboard SET " + " downcount=downcount+1 " + " WHERE idx=? ";
 		try {
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, idx);
@@ -182,7 +182,7 @@ public class boardDAO extends DBConnPool {
 	public int deletePost(String idx) {
 		int result = 0;
 		try {
-			String query = "DELETE FROM board WHERE idx=?";
+			String query = "DELETE FROM fileboard WHERE idx=?";
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, idx);
 			result = psmt.executeUpdate();
@@ -194,11 +194,11 @@ public class boardDAO extends DBConnPool {
 	}
 
 	// 게시글 데이터를 받아 DB에 저장되어 있던 내용을 갱신합니다(파일 업로드 지원).
-	public int updatePost(boardDTO dto) {
+	public int updatePost(fileboardDTO dto) {
 		int result = 0;
 		try {
 			// 쿼리문 템플릿 준비. 회원제이므로 일련번호와 아이디까지 조건에 추가.
-			String query = "UPDATE board" + " SET title=?, content=?, ofile=?, sfile=? " + " WHERE idx=? and id=?";
+			String query = "UPDATE fileboard" + " SET title=?, content=?, ofile=?, sfile=? " + " WHERE idx=? and id=?";
 
 			// 쿼리문 준비 및 인파라미터 설정
 			psmt = con.prepareStatement(query);
@@ -218,9 +218,9 @@ public class boardDAO extends DBConnPool {
 		return result;
 	}
 
-	public List<boardDTO> selectListPage(Map<String, Object> map) {
-		List<boardDTO> board = new Vector<boardDTO>();
-		String query = " SELECT * FROM (" + " SELECT Tb.*, ROWNUM rNUM FROM (" + "   SELECT * FROM board ";
+	public List<fileboardDTO> selectListPage(Map<String, Object> map) {
+		List<fileboardDTO> board = new Vector<fileboardDTO>();
+		String query = " SELECT * FROM (" + " SELECT Tb.*, ROWNUM rNUM FROM (" + "   SELECT * FROM fileboard ";
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField") + " LIKE '%" + map.get("searchWord") + "%'";
 		}
@@ -232,7 +232,7 @@ public class boardDAO extends DBConnPool {
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				boardDTO dto = new boardDTO();
+				fileboardDTO dto = new fileboardDTO();
 
 				dto.setIdx(rs.getString(1));
 				dto.setId(rs.getString(2));

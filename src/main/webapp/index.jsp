@@ -71,9 +71,13 @@
 							<div class="col-xl-6 col-lg-7 col-md-12">
 								<div class="hero__caption">
 									<h1>Welcome to WebProject_YWH</h1>
-									<p>Your platform for online learning and personal growth.</p>
-									<a href="<%= (session.getAttribute("UserId") != null) ? request.getContextPath() + "/board/list.do" : request.getContextPath() + "/login_info/LoginForm.jsp" %>"
+									<p>Your platform for online learning and personal growth.</p>\
+									<a href="<%= (session.getAttribute("UserId") != null) ? request.getContextPath() + "/board/listPage.do" : request.getContextPath() + "/login_info/LoginForm.jsp" %>"
 										class="btn hero-btn">자유게시판</a>
+									<a href="<%= (session.getAttribute("UserId") != null) ? request.getContextPath() + "/qaboard/qalistPage.do" : request.getContextPath() + "/login_info/LoginForm.jsp" %>"
+										class="btn hero-btn">Q&A 게시판</a>
+									<a href="<%= (session.getAttribute("UserId") != null) ? request.getContextPath() + "/fileboard/filelistPage.do" : request.getContextPath() + "/login_info/LoginForm.jsp" %>"
+										class="btn hero-btn">자료실 게시판</a>
 								</div>
 							</div>
 						</div>

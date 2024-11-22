@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>자유게시판</title>
+<title>자료형게시판</title>
 <style>
     body {
         background-color: #f0f8ff;
@@ -36,7 +36,7 @@
         padding: 10px;
         text-align: left;
     }
-    input[type="text"], textarea, input[type="file"] {
+    input[type="text"], textarea {
         width: calc(100% - 20px);
         padding: 8px;
         margin: 10px 0;
@@ -70,9 +70,9 @@
     }
 </script>
 </head>
-<h2>자유게시판 - 글쓰기(Write)</h2>
-<form name="writeFrm" method="post" enctype="multipart/form-data"
-      action="../board/write.do" onsubmit="return validateForm(this);">
+<h2>Q&A게시판 - 글쓰기(Write)</h2>
+<form name="writeFrm" method="post"
+      action="../qaboard/qawrite.do" onsubmit="return validateForm(this);">
 <table border="1" width="90%">
     <tr>
         <td>제목</td>
@@ -87,16 +87,10 @@
         </td>
     </tr>
     <tr>
-        <td>검토하기</td>
-        <td>
-            <input type="file" name="ofile" />
-        </td>
-    </tr>
-    <tr>
         <td colspan="2" align="center">
             <button type="submit">작성 완료</button>
             <button type="reset">RESET</button>
-            <button type="button" onclick="location.href='../board/list.do';">
+            <button type="button" onclick="location.href='../qaboard/qalist.do';">
                 목록 바로가기
             </button>
         </td>
@@ -105,4 +99,3 @@
 </form>
 </body>
 </html>
-
